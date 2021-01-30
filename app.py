@@ -62,6 +62,8 @@ class Mysql_database:
     def insert_into_table(self):
         '''
         this function is used to insert values in tables
+        TO input the multiple values in database put the values in list format
+        like this [(values1),(values2)]
         '''
         mycursor = self.mydb.cursor()
         sql_query = "INSERT INTO customers (name, address) VALUES (%s, %s)"
@@ -69,6 +71,9 @@ class Mysql_database:
         mycursor.execute(sql_query, values)
         self.mydb.commit()
         print(mycursor.rowcount, "record inserted.")
+
+
+    def
 
 if __name__ =="__main__":
     md = Mysql_database()
