@@ -1,5 +1,5 @@
 # Python-MYSQL-Database-Connection
-Connecting to MYSQL using python and perform  DDL and DML statements
+Connecting to MYSQL using python and perform  DDL and DML operations
 
 First Need to intall drivers using "python -m pip install mysql-connector-python" in cmd
 
