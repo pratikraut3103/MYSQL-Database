@@ -41,6 +41,35 @@ class Mysql_database:
         mycursor.execute("CREATE TABLE customers (name VARCHAR(20), address VARCHAR(255))")
         print('table created')
 
+    def show_tables(self):
+        '''
+        This function is used to show tables
+        '''
+        mycursor = self.mydb.cursor()
+        mycursor.execute("SHOW TABLES")
+
+        for _ in mycursor:
+          print(_)
+
+    def alter_table(self):
+        '''
+        This function is used to alter table
+        '''
+        mycursor = self.mydb.cursor()
+        mycursor.execute("ALTER TABLE customers ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY")
+        print('table altered')
+
+    def insert_into_table(self):
+        '''
+        this function is used to insert values in tables
+        '''
+        mycursor = self.mydb.cursor()
+        sql_query = "INSERT INTO customers (name, address) VALUES (%s, %s)"
+        values = ("John", "Highway 21")
+        mycursor.execute(sql_query, values)
+        self.mydb.commit()
+        print(mycursor.rowcount, "record inserted.")
+
 if __name__ =="__main__":
     md = Mysql_database()
-    md.create_table()
+    md.insert_into_table()
