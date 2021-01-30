@@ -116,4 +116,14 @@ class Mysql_database:
 
 if __name__ =="__main__":
     md = Mysql_database()
-    md.delete_query()
+    md.create_database() # crete database
+    md.show_databases() #show all the databases
+    md.create_table() # create tables
+    md.show_tables() # show all the bales in the database
+    md.alter_table() # alter table
+    md.insert_into_table() # insert into table
+    md.select_query() #select query
+    md.delete_query() #delete  a value / values in table
+    md.drop_table() # drop tables
+    md.update_table() #update values in table
+    
