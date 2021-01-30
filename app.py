@@ -73,8 +73,28 @@ class Mysql_database:
         print(mycursor.rowcount, "record inserted.")
 
 
-    def
+    def select_query(self):
+        '''
+        This function is used to select all the values in the table
+        '''
+        mycursor = self.mydb.cursor()
+        mycursor.execute("SELECT * FROM customers") #the select statment can be alter as per the need
+        myresult = mycursor.fetchall() #Here all the values will be fetch using fetchall to fetch one value use fetchone()
+        for _ in myresult:
+          print(_)
+
+    def delete_query(self):
+        '''
+        This function is used to delete values
+        '''
+        mycursor = self.mydb.cursor()
+        sql_statement = "DELETE FROM customers WHERE address = 'somewhere on earth'"
+        mycursor.execute(sql_statement)
+        self.mydb.commit()
+        print(mycursor.rowcount, "record(s) deleted")
+
+
 
 if __name__ =="__main__":
     md = Mysql_database()
-    md.insert_into_table()
+    md.delete_query()
