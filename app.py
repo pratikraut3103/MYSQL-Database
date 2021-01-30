@@ -65,7 +65,7 @@ class Mysql_database:
         '''
         mycursor = self.mydb.cursor()
         sql_query = "INSERT INTO customers (name, address) VALUES (%s, %s)"
-        values = ("John", "Highway 21")
+        values = ("Pratik", "somewhere on earth")
         mycursor.execute(sql_query, values)
         self.mydb.commit()
         print(mycursor.rowcount, "record inserted.")
