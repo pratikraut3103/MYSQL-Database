@@ -69,7 +69,7 @@ class Mysql_database:
         sql_query = "INSERT INTO customers (name, address) VALUES (%s, %s)"
         values = ("Pratik", "somewhere on earth")
         mycursor.execute(sql_query, values)
-        self.mydb.commit()
+        self.mydb.commit() #It is required to make the changes, otherwise no changes are made to the table.
         print(mycursor.rowcount, "record inserted.")
 
 
@@ -90,8 +90,27 @@ class Mysql_database:
         mycursor = self.mydb.cursor()
         sql_statement = "DELETE FROM customers WHERE address = 'somewhere on earth'"
         mycursor.execute(sql_statement)
-        self.mydb.commit()
+        self.mydb.commit() #It is required to make the changes, otherwise no changes are made to the table.
         print(mycursor.rowcount, "record(s) deleted")
+
+
+    def drop_table(self):
+        '''
+        This function is used to drop a table
+        '''
+        mycursor = self.mydb.cursor()
+        sql_statement = "DROP TABLE IF EXISTS customers"
+        mycursor.execute(sql_statement)
+
+    def update_table(self):
+        '''
+        This function is used to update table
+        '''
+        mycursor = self.mydb.cursor()
+        sql_statement = "UPDATE customers SET address = 'los angles' WHERE address = 'las vegas'"
+        mycursor.execute(sql_statement)
+        self.mydb.commit()  #It is required to make the changes, otherwise no changes are made to the table.
+
 
 
 
